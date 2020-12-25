@@ -1,4 +1,4 @@
-package com.example.lab.model.database;
+package com.example.lab .model.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -20,7 +20,7 @@ public class Database {
 
     public Database(Context context) {
         this.mContext = context;
-        dbHelper = new ParkingDbHelper(context);
+        dbHelper = new ParkingDbHelper(context); 
     }
 
 
