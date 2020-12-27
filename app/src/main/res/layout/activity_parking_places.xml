@@ -6,9 +6,8 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/parking_places"
+        android:id="@+id/activity_parking_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="27dp" />
+        android:layout_height="match_parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

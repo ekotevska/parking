@@ -12,30 +12,30 @@
     <string name="title_activity_reservation">ReservationActivity</string>
 
     <string-array name="timeslots">
-        <item>00:00–01:00</item>
-        <item>01:00–02:00</item>
-        <item>02:00–03:00</item>
-        <item>03:00–04:00</item>
-        <item>04:00–05:00</item>
-        <item>05:00–06:00</item>
-        <item>06:00–07:00</item>
-        <item>07:00–08:00</item>
-        <item>08:00–09:00</item>
-        <item>09:00–10:00</item>
-        <item>10:00–11:00</item>
-        <item>11:00–12:00</item>
-        <item>12:00–13:00</item>
-        <item>13:00–14:00</item>
-        <item>14:00–15:00</item>
-        <item>15:00–16:00</item>
-        <item>16:00–17:00</item>
-        <item>17:00–18:00</item>
-        <item>18:00–19:00</item>
-        <item>19:00–20:00</item>
-        <item>20:00–21:00</item>
-        <item>21:00–22:00</item>
-        <item>22:00–23:00</item>
-        <item>23:00–00:00</item>
+        <item>00:01h</item>
+        <item>01:02h</item>
+        <item>02:03h</item>
+        <item>03:04h</item>
+        <item>04:05h</item>
+        <item>05:06h</item>
+        <item>06:07h</item>
+        <item>07:08h</item>
+        <item>08:09h</item>
+        <item>09:10h</item>
+        <item>10:11h</item>
+        <item>11:12h</item>
+        <item>12:13h</item>
+        <item>13:14h</item>
+        <item>14:15h</item>
+        <item>15:16h</item>
+        <item>16:17h</item>
+        <item>17:18h</item>
+        <item>18:19h</item>
+        <item>19:20h</item>
+        <item>20:21h</item>
+        <item>21:22h</item>
+        <item>22:23h</item>
+        <item>23:00h</item>
 
     </string-array>
 </resources>

@@ -4,40 +4,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:padding="4dp"
     android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/view_recycler_grad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="25sp"
+        android:textColor="#000"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/picture"
+        app:layout_constraintEnd_toStartOf="@+id/view_recycler_rezerviraj"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/view_recycler_rezerviraj"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="Rezerviraj"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"
+        android:background="#226666"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:src="@drawable/ic_check_mark"
+        android:tint="#fff"
+        app:layout_constraintBottom_toBottomOf="@+id/picture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/picture"
-        android:layout_width="439dp"
-        android:layout_height="147dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="-27dp"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@+id/view_recycler_rezerviraj"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_recycler_grad"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

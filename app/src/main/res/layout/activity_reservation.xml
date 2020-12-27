@@ -5,6 +5,7 @@
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#226666"
     tools:context=".view.activities.ReservationActivity">
 
 
@@ -28,6 +29,7 @@
         android:layout_height="63dp"
         android:layout_marginBottom="32dp"
         android:text="Pick Date"
+        app:backgroundTint="#AA3939"
         app:layout_constraintBottom_toTopOf="@+id/reseervation_spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -38,8 +40,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Reserve"
-        app:layout_constraintTop_toBottomOf="@+id/reseervation_spinner"
-        tools:layout_editor_absoluteX="163dp" />
+        app:backgroundTint="#AA3939"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reseervation_spinner" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Изберете време:"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/reservation_date_pick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

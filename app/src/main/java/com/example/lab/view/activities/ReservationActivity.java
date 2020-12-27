@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.lab.R;
+import com.example.lab.model.Constants;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,15 +27,19 @@ import java.util.Calendar;
 
 public class ReservationActivity extends AppCompatActivity {
 
+    String mCityName;
     Button mPickdate, mReserve;
     Spinner mSpinner;
     DatePicked listener;
-    int mDay, mMonth, mYear;
+    int mDay= 0, mMonth = 0, mYear = 1999;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
+
+        mCityName = getIntent().getStringExtra(Constants.EXTRA_STRING_CITY_NAME);
+        Toast.makeText(this, "City name: " + mCityName, Toast.LENGTH_SHORT).show();
 
         mSpinner = findViewById(R.id.reseervation_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -46,10 +52,12 @@ public class ReservationActivity extends AppCompatActivity {
         listener = new DatePicked() {
             @Override
             public void updateDate(int day, int month, int year) {
+
                 mDay = day;
-                mMonth = month;
+                mMonth = month + 1;
                 mYear = year;
                 mPickdate.setText(mDay + "." + mMonth + "." + mYear);
+                Log.i("DATUM", "Datumot e: " + mMonth);
             }
         };
         mPickdate.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +72,9 @@ public class ReservationActivity extends AppCompatActivity {
         mReserve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ReservationActivity.this,ParkingActivity.class);
+                Intent intent = new Intent(ReservationActivity.this, ParkingActivity.class);
+                intent.putExtra(Constants.EXTRA_STRING_CITY_NAME, mCityName);
+                intent.putExtra(Constants.EXTRA_STRING_TIMESLOT, mYear + "-"+mMonth+"-"+mDay+"-"+ mSpinner.getSelectedItem().toString());
                 ReservationActivity.this.startActivity(intent);
             }
         });

@@ -1,60 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/view_parking_place"
-        android:layout_width="93dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        card_view:cardElevation="5dp"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="4dp">
 
-    <Button
-        android:id="@+id/view_parking_place_rezerviraj"
-        android:layout_width="148dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginBottom="32dp"
-        android:text="Rezerviraj"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/zafateni_mesta"
-        android:layout_width="49dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="8dp"
-        android:background="#A51A0D"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/slobodni_mesta"
-        app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_parking_place"
-        app:layout_constraintVertical_bias="0.529" />
+            <TextView
+                android:id="@+id/view_parking_place"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/view_parking_place_zafateni"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/slobodni_mesta"
-        android:layout_width="49dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="8dp"
-        android:background="#31B327"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_parking_place"
-        tools:layout_editor_absoluteX="85dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+            <TextView
+                android:id="@+id/view_parking_place_zafateni"
+                android:layout_width="80dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#e74c3c"
+                android:text="0"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/view_parking_place_slobodni"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.75" />
+
+            <TextView
+                android:id="@+id/view_parking_place_slobodni"
+                android:layout_width="80dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#2ecc71"
+                android:text="0"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/view_parking_place_rezerviraj"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/view_parking_place_rezerviraj"
+                android:layout_width="80dp"
+                android:tint="@color/white"
+                android:layout_height="match_parent"
+                android:background="#226666"
+                android:src="@drawable/ic_check_mark" />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
