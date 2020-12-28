@@ -14,6 +14,7 @@ import com.example.lab.model.database.DatabaseContract.Reservations;
 import com.example.lab.model.pojo.City;
 import com.example.lab.model.pojo.Parking;
 import com.example.lab.model.pojo.Rezervacija;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
@@ -119,13 +120,13 @@ public class Database {
 
     public void insertParkings() {
         database = dbHelper.getWritableDatabase();
-        database.execSQL("insert into " + Parkings.TABLE_NAME +"(parking_name, city_name, parking_lat, parking_long, total_mesta)" + "VALUES " + "('Mavrovka', 'Skopje', '42.0055005', '21.3925705' ,'5')");
+        database.execSQL("insert into " + Parkings.TABLE_NAME +"(parking_name, city_name, parking_lat, parking_long, total_mesta)" + "VALUES " + "('Mavrovka', 'Skopje', '41.9994427', '21.4371476' ,'5')");
         database.execSQL("insert into " + Parkings.TABLE_NAME +"(parking_name, city_name, parking_lat, parking_long, total_mesta)" + "VALUES " + "('City Mall', 'Skopje','42.0055005', '21.3925705', '2')");
-        database.execSQL("insert into " + Parkings.TABLE_NAME +"(parking_name, city_name, parking_lat, parking_long, total_mesta)" + "VALUES " + "('Plostad', 'Bitola','42.0055005', '21.3925705', '3')");
-        database.execSQL("insert into " + Parkings.TABLE_NAME +"(parking_name, city_name, parking_lat, parking_long, total_mesta)" + "VALUES " + "('Biljanini Izvori', 'Ohrid','42.0055005', '21.3925705', '4')");
-        database.execSQL("insert into " + Parkings.TABLE_NAME +"(parking_name, city_name, parking_lat, parking_long, total_mesta)" + "VALUES " + "('Tinex', 'Prilep','42.0055005', '21.3925705', '2')");
-        database.execSQL("insert into " + Parkings.TABLE_NAME +"(parking_name, city_name, parking_lat, parking_long, total_mesta)" + "VALUES " + "('Vero', 'Tetovo','42.0055005', '21.3925705', '4')");
-        database.execSQL("insert into " + Parkings.TABLE_NAME +"(parking_name, city_name, parking_lat, parking_long, total_mesta)" + "VALUES " + "('Global', 'Strumica','42.0055005', '21.3925705','2')");
+        database.execSQL("insert into " + Parkings.TABLE_NAME +"(parking_name, city_name, parking_lat, parking_long, total_mesta)" + "VALUES " + "('Shirok Sokak', 'Bitola','41.5212283', '20.8325921', '3')");
+        database.execSQL("insert into " + Parkings.TABLE_NAME +"(parking_name, city_name, parking_lat, parking_long, total_mesta)" + "VALUES " + "('Biljanini Izvori', 'Ohrid','41.1106272', '20.8053991', '4')");
+        database.execSQL("insert into " + Parkings.TABLE_NAME +"(parking_name, city_name, parking_lat, parking_long, total_mesta)" + "VALUES " + "('Tinex', 'Prilep','41.3429904', '21.5505254', '2')");
+        database.execSQL("insert into " + Parkings.TABLE_NAME +"(parking_name, city_name, parking_lat, parking_long, total_mesta)" + "VALUES " + "('Vero', 'Tetovo','41.9994842', '20.9564608', '4')");
+        database.execSQL("insert into " + Parkings.TABLE_NAME +"(parking_name, city_name, parking_lat, parking_long, total_mesta)" + "VALUES " + "('Global', 'Strumica','41.4392177', '22.6370162','2')");
     }
 
     public ArrayList<Parking> getParkings(String cityName, String mTimeslot) {
@@ -212,6 +213,24 @@ public class Database {
         return newRowId;
     }
 
+    public ArrayList<Rezervacija> getMyReservations () {
+        database = dbHelper.getReadableDatabase();
+        Cursor cursor = database.rawQuery("Select * from RESERVATIONS", null);
+
+        ArrayList<Rezervacija> myreservations = new ArrayList<>();
+        while (cursor.moveToNext()){
+            Rezervacija myres = new Rezervacija();
+            myres.setImeKorisnik(cursor.getString(cursor.getColumnIndexOrThrow(Reservations.COLUMN_NAME_USER_NAME)));
+            myres.setImeParking(cursor.getString(cursor.getColumnIndexOrThrow(Reservations.COLUMN_NAME_PARKING_NAME)));
+            myres.setImeGrad(cursor.getString(cursor.getColumnIndexOrThrow(Reservations.COLUMN_NAME_CITY)));
+            myres.setTimeslot(cursor.getString(cursor.getColumnIndexOrThrow(Reservations.COLUMN_NAME_RESERVATION_TIMESLOT)));
+            myreservations.add(myres);
+        }
+        cursor.close();
+        database.close();
+        return myreservations;
+        };
+
     public Location getParkingLocation(String imeParking) {
         database = dbHelper.getReadableDatabase();
 
@@ -243,40 +262,6 @@ public class Database {
     }
 }
 
-    /*
-    public String[] getCityID() {
-
-        database = dbHelper.getReadableDatabase();
-        Cursor cursor = database.rawQuery("Select * from CITIES", null);
-
-        int count = cursor.getCount();
-        String []cityid = new String[count];
-        int i=0;
-        while (cursor.moveToNext()){
-            cityid[i] = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.Cities.COLUMN_NAME_CITY_ID));
-            i++;
-        }
-        cursor.close();
-        database.close();
-        return cityid;
-    }
-    public String[] getCityImage() {
-
-        database = dbHelper.getReadableDatabase();
-        Cursor cursor = database.rawQuery("Select * from CITIES", null);
-
-        int count = cursor.getCount();
-        String []city_img = new String[count];
-        int i=0;
-        while (cursor.moveToNext()){
-            city_img[i] = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.Cities.COLUMN_NAME_CITY_IMAGE));
-            i++;
-        }
-        cursor.close();
-        database.close();
-        return city_img;
-    }
-*/
 
 
 

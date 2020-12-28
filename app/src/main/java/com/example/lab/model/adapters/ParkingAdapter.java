@@ -61,7 +61,7 @@ public class ParkingAdapter extends RecyclerView.Adapter<ParkingAdapter.ParkingH
         holder.rezervirajMesto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO activity za confirmation
+                //Activity za confirmation
                 if (parking.getSlobodni() != 0) {
                     mRezervacija.setImeParking(mData.get(position).getName());
                     if (database.insertReservation(mRezervacija) != -1) {
@@ -69,7 +69,7 @@ public class ParkingAdapter extends RecyclerView.Adapter<ParkingAdapter.ParkingH
                         intent.putExtra(Constants.EXTRA_STRING_PARKING_NAME, mRezervacija.getImeParking());
                         mContext.startActivity(intent);
                     } else {
-                        Toast.makeText(mContext, "Ne moze da se izvrsi rezervacija. Mrs!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, "Ne moze da se izvrsi rezervacija.", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(mContext, "Nema slobodni mesta.", Toast.LENGTH_SHORT).show();

@@ -10,8 +10,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Lab">
-        <activity android:name=".view.activities.ConfirmationActivity"/>
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".view.activities.MyReservations" />
+        <activity android:name=".view.activities.ConfirmationActivity" />
         <activity android:name=".view.activities.ParkingActivity" />
         <activity
             android:name=".view.activities.ReservationActivity"

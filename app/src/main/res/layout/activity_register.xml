@@ -4,29 +4,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#226666" >
 
     <EditText
         android:id="@+id/register_username"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="34dp"
         android:layout_marginTop="100dp"
+        android:background="@drawable/login_edit_text"
         android:ems="10"
+        android:hint="  Username"
         android:inputType="text"
-        android:hint="Username"
 
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="100dp"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/register_password"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="34dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/login_edit_text"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="Password"
+        android:hint="  Password"
 
         app:layout_constraintStart_toStartOf="@id/register_username"
         app:layout_constraintTop_toBottomOf="@id/register_username" />
@@ -34,11 +38,12 @@
     <EditText
         android:id="@+id/register_password_confirm"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="34dp"
         android:layout_marginTop="24dp"
         android:ems="10"
+        android:background="@drawable/login_edit_text"
         android:inputType="textPassword"
-        android:hint="Confirm password"
+        android:hint="  Confirm password"
         app:layout_constraintStart_toStartOf="@id/register_password"
         app:layout_constraintTop_toBottomOf="@id/register_password" />
 
@@ -48,6 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Register"
+        app:shapeAppearanceOverlay="@style/leaf"
+        app:backgroundTint="#AA3939"
         app:layout_constraintEnd_toEndOf="@+id/register_password_confirm"
         app:layout_constraintStart_toStartOf="@+id/register_password_confirm"
         app:layout_constraintTop_toBottomOf="@+id/register_password_confirm" />
@@ -56,9 +63,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="Registracija"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/register_username"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="168dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
